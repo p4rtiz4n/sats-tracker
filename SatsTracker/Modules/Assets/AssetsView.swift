@@ -31,6 +31,10 @@ class DefaultAssetsView: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         presenter.present()
+        setupRefreshControl()
+        #if targetEnvironment(macCatalyst)
+        navigationItem.largeTitleDisplayMode = .never
+        #endif
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -215,8 +219,23 @@ extension DefaultAssetsView {
             .didComeToRest(tableView.indexPathsForVisibleRows ?? [])
         )
     }
+    
+    func setupRefreshControl() {
+        #if !targetEnvironment(macCatalyst)
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(
+            string: " ↓ Refresh ↓ "
+        )
+        refreshControl?.addTarget(
+            self,
+            action: #selector(refreshAction(_:)),
+            for: .valueChanged
+        )
+        #endif
+    }
 
     func updateRefreshControl(_ viewModel: AssetsViewModel) {
+        #if !targetEnvironment(macCatalyst)
         switch viewModel {
         case .loading, .partialLoad:
             if refreshControl?.isRefreshing ?? false {
@@ -227,6 +246,7 @@ extension DefaultAssetsView {
                 refreshControl?.endRefreshing()
             }
         }
+        #endif
     }
 }
 

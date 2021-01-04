@@ -20,6 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ServiceDirectory.Navigation.rootWireframeFactory
             .makeWireframe()
             .present()
+        
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .forEach {
+                $0.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 320)
+            }
+        
     }
 
     func setupConfiguration() {
