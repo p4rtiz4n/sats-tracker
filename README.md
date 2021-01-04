@@ -1,6 +1,4 @@
-![icon](https://github.com/p4rtiz4n/sats-tracker/blob/master/screenshots/Icon.png?raw=true)
-
-# Sats tracker
+# Sats tracker <img align="right" src="screenshots/light.gif">
 
 Simple crypto currencies price tracking app. Displays the latest price and daily USD candles.
 
@@ -16,7 +14,7 @@ Simple crypto currencies price tracking app. Displays the latest price and daily
 - Persisting user data (Favourite assets)
 - Simple fuzzy search for `UISearchController`
 
-Fork of the app was published on the [AppStore]().
+Fork of the app was published on the [AppStore](https://apps.apple.com/app/sats-tracker/id1546547376).
 
 ### TODO: 
 - [] Cache for markets for asset
@@ -27,11 +25,7 @@ Fork of the app was published on the [AppStore]().
 - [] Add Time frame picking options to `Assets` module 
 - [] Base pair options
 
-### Licence
-
+### Licence <img align="right" src="screenshots/Icon.png">
 
 [WTFPL 2.0](http://www.wtfpl.net/txt/copying)
 
-### Screenshots
-
-![light](https://github.com/p4rtiz4n/sats-tracker/blob/master/screenshots/light.gif?raw=true)
