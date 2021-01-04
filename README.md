@@ -18,6 +18,7 @@ Fork of the app was published on the [AppStore](https://apps.apple.com/app/sats-
 
 ### TODO: 
 - [] Fix bug where candles are on realoaded when app becomes active from background
+- [] Add favorite aciton to detail screen
 - [] Cache for markets for asset
 - [] Test coverage
 - [] Axes for `CandleView` in `AssetDetailView`
