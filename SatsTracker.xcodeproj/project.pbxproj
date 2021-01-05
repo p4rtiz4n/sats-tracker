@@ -110,6 +110,7 @@
 		9FC9A30A259716220047B26F /* UITestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITestConfiguration.swift; sourceTree = "<group>"; };
 		9FC9A30B259716220047B26F /* SatsTrackerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatsTrackerUITests.swift; sourceTree = "<group>"; };
 		9FC9A33B2597335E0047B26F /* SatsTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatsTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCD826E25A486F10060D2DD /* SatsTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SatsTracker.entitlements; sourceTree = "<group>"; };
 		A243911EDCCBBEAEAA7183F5 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		A24391DD387EA30CA73C3DEF /* AssetDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewModel.swift; sourceTree = "<group>"; };
 		A24393490C1B5788EAEDECBC /* Candle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candle.swift; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		9FC9A272259714BC0047B26F /* SatsTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9FCD826E25A486F10060D2DD /* SatsTracker.entitlements */,
 				9FC9A273259714BC0047B26F /* AppDelegate.swift */,
 				9FC9A275259714BC0047B26F /* SceneDelegate.swift */,
 				9FC9A2B2259715580047B26F /* main.swift */,
@@ -726,6 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SatsTracker/SatsTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8TH53QYXW;
 				INFOPLIST_FILE = SatsTracker/Info.plist;
@@ -735,8 +738,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -745,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SatsTracker/SatsTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8TH53QYXW;
 				INFOPLIST_FILE = SatsTracker/Info.plist;
@@ -754,8 +760,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
