@@ -21,18 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .makeWireframe()
             .present()
         
-        UIApplication.shared.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .forEach {
-                $0.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 320)
-            }
-        
+        UIApplication.shared.setupWindows()
     }
 
     func setupConfiguration() {
         DefaultConfiguration().bootstrap(window)
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

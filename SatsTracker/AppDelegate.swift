@@ -18,19 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .makeWireframe()
             .present()
 
-        UIApplication.shared.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .forEach {
-                $0.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 320)
-            }
-        
+        UIApplication.shared.setupWindows()
         return true
     }
 
     func setupConfiguration() {
         DefaultConfiguration().bootstrap(window)
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F5C457D25A6497F002CDA9B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C457C25A6497F002CDA9B /* UIApplication.swift */; };
 		9F7716A92597404100A60FF1 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7716A82597404100A60FF1 /* AssetCell.swift */; };
 		9FC99397259C75EA000194AC /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC99396259C75EA000194AC /* AsyncOperation.swift */; };
 		9FC9A274259714BC0047B26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A273259714BC0047B26F /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		9F0B8A4A25A273B900102531 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		9F5C457C25A6497F002CDA9B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9F7716A82597404100A60FF1 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
 		9FC99396259C75EA000194AC /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		9FC9A270259714BC0047B26F /* SatsTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SatsTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +303,7 @@
 				A243911EDCCBBEAEAA7183F5 /* UITableView+Extensions.swift */,
 				A243980676D7A1DA01D34E2B /* TimeInterval.swift */,
 				A2439EE65BE6A139C59B7815 /* NotificationCenter+Extension.swift */,
+				9F5C457C25A6497F002CDA9B /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				A2439A8992471D4A5B09C7F2 /* Interval.swift in Sources */,
 				A24395D7CA6894EB1FA25B68 /* CandlesView.swift in Sources */,
 				A24397A90A0A37B5E8010E3D /* CandlesViewModel.swift in Sources */,
+				9F5C457D25A6497F002CDA9B /* UIApplication.swift in Sources */,
 				A2439456ECDED504473EF154 /* UIColor+Extension.swift in Sources */,
 				A2439EBBB488ACCED4EAD2EB /* CandleCacheService.swift in Sources */,
 				A24391C85D553B8839D4C2D8 /* Collection+Extension.swift in Sources */,

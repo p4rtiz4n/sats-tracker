@@ -15,3 +15,5 @@ temp
 *.xcuserstate
 
 docset-installed.txt
+
+.idea/
