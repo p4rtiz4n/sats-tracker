@@ -343,6 +343,7 @@ private extension DefaultAssetsPresenter {
                         let viewModels = self?.makeAssetViewModels() ?? []
                         self?.view?.update(with: .loaded(viewModels))
                         self?.cancelCandleLoading()
+                        self?.currentCandles = [:]
                     case let .failure(error):
                         self?.view?.update(with: .failedToLoad(error))
                     }
