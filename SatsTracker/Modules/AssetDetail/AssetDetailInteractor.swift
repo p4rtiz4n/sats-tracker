@@ -48,7 +48,7 @@ extension DefaultAssetDetailInteractor: AssetDetailInteractor {
     }
 
     func favoriteAssets() -> [FavouriteAsset] {
-        favoriteAssetsService.favoriteAssets()
+        favoriteAssetsService.favouriteAssets()
     }
 
     func toggleFavourite(_ asset: Asset) {

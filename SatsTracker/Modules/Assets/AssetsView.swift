@@ -87,12 +87,13 @@ class DefaultAssetsView: UITableViewController {
     ) -> UISwipeActionsConfiguration? {
         let favourite = UIContextualAction(
             style: .normal,
-            title: "★",
+            title: nil,
             handler: { [weak self] (_, _, completion) in
                 self?.presenter.handleEvent(.favourite(indexPath))
                 completion(true)
             }
         )
+        favourite.image = UIImage(systemName: "star.fill")
         favourite.backgroundColor = .systemYellow
      
         let config = UISwipeActionsConfiguration(actions: [favourite])

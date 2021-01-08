@@ -81,7 +81,7 @@ class DefaultAssetsInteractor: AssetsInteractor {
     // MARK: - Favourite handling
 
     func favoriteAssets() -> [FavouriteAsset] {
-        favoriteAssetsService.favoriteAssets()
+        favoriteAssetsService.favouriteAssets()
     }
 
     func toggleFavourite(_ asset: Asset) {

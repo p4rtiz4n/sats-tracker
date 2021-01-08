@@ -55,6 +55,7 @@ extension DefaultAssetDetailPresenter: AssetDetailPresenter {
         switch event {
         case .toggleFavourite:
             interactor.toggleFavourite(asset)
+            view?.update(with: makeViewModel())
         }
     }
 }

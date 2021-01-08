@@ -28,6 +28,8 @@ class DefaultAssetDetailView: UIViewController {
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var supplyLabel: UILabel!
     @IBOutlet weak var maxSupplyLabel: UILabel!
+
+    @IBOutlet weak var favButton: UIBarButtonItem!
     
     var presenter: DefaultAssetDetailPresenter!
 
@@ -69,5 +71,15 @@ extension DefaultAssetDetailView: AssetDetailView {
         rankLabel.text = "\(asset.rank)"
         supplyLabel.text = asset.supply
         maxSupplyLabel.text = asset.maxSupply
+
+        favButton.image = UIImage(
+            systemName: asset.isFavourite ? "star.fill" : "star"
+        )
+    }
+
+    // MARK: - Actions
+
+    @IBAction func toggleFavoriteAction(_ sender: Any?) {
+        presenter.handleEvent(.toggleFavourite)
     }
 }

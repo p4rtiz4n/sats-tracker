@@ -6,14 +6,14 @@ import Foundation
 
 protocol FavouriteAssetsService {
 
-    func favoriteAssets() -> [FavouriteAsset]
+    func favouriteAssets() -> [FavouriteAsset]
     func addToFavorite(_ asset: FavouriteAsset)
     func removerFromFavorite(_ asset: FavouriteAsset)
 }
 
 class DefaultFavoriteAssetsService: FavouriteAssetsService {
 
-    func favoriteAssets() -> [FavouriteAsset] {
+    func favouriteAssets() -> [FavouriteAsset] {
         let obj = UserDefaults.standard.object(forKey: Constant.favouriteKey)
         guard let assetDicts = obj as? [[String: String]] else {
             return []
@@ -22,13 +22,13 @@ class DefaultFavoriteAssetsService: FavouriteAssetsService {
     }
 
     func addToFavorite(_ asset: FavouriteAsset) {
-        let assets = favoriteAssets() + [asset]
+        let assets = favouriteAssets() + [asset]
         UserDefaults.standard.set(encode(assets), forKey: Constant.favouriteKey)
         UserDefaults.standard.synchronize()
     }
 
     func removerFromFavorite(_ asset: FavouriteAsset) {
-        let assets = favoriteAssets().filter { $0 != asset }
+        let assets = favouriteAssets().filter { $0 != asset }
         UserDefaults.standard.set(encode(assets), forKey: Constant.favouriteKey)
         UserDefaults.standard.synchronize()
     }

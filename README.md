@@ -16,10 +16,11 @@ Simple crypto currencies price tracking app. Displays the latest price and daily
 
 Fork of the app was published on the [AppStore](https://apps.apple.com/app/sats-tracker/id1546547376).
 
-### TODO: 
-- [] Add favorite aciton to detail screen
+### TODO:
 - [] Cache for markets for asset
 - [] Test coverage
+- [] Switch to diffable for assets screen 
+- [] Refactor `makeViewModel` to return complete view model
 - [] Axes for `CandleView` in `AssetDetailView`
 - [] Widget
 - [] Complications

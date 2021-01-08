@@ -89,6 +89,8 @@ extension DefaultAssetsPresenter: AssetsPresenter {
         case .viewDidAppear:
             startAppStateNotifications()
             startDataRefreshingIfNecessary()
+            updateCurrentAssets(currentAssets)
+            view?.update(with: .loaded(makeAssetViewModels()))
         case .viewDidDisAppear:
             stopAppStateNotifications()
             stopDataRefreshing()
