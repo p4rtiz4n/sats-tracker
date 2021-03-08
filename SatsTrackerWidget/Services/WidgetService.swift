@@ -14,7 +14,7 @@ protocol WidgetsService {
         handler: @escaping AssetCandleHandler
     )
 
-    func fetchAssets(_ handler: @escaping AssetHandler)
+    func fetchAssets(handler: @escaping AssetHandler)
     func defaultAssets() -> [Asset]
 }
 
@@ -45,7 +45,7 @@ extension DefaultWidgetsService: WidgetsService {
         // TODO: - Implement
     }
 
-    func fetchAssets(_ handler: @escaping AssetHandler) {
+    func fetchAssets(handler: @escaping AssetHandler) {
         // TODO: - Implement
     }
 

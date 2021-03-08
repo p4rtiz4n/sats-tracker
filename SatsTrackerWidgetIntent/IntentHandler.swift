@@ -9,7 +9,15 @@ import Intents
 
 class IntentHandler: INExtension {
     
-    let service: AssetsService = DefaultAssetsService(network: DefaultNetwork())
+    let service: WidgetsService = {
+        let assetsService = DefaultAssetsService(network: DefaultNetwork())
+        return DefaultWidgetsService(
+            assetsService: assetsService,
+            candleCacheService: DefaultCandlesCacheService(
+                assetsService: assetsService
+            )
+        )
+    }()
     
     override func handler(for intent: INIntent) -> Any {
         return self
@@ -19,11 +27,12 @@ class IntentHandler: INExtension {
 
 extension IntentHandler: ConfigurationIntentHandling {
     
-    func provideAssetsOptionsCollection(for intent: ConfigurationIntent, with completion: @escaping (INObjectCollection<AssetOption>?, Error?) -> Swift.Void) {
-        
-        service.assets(
-            pageHandler: { _ in () },
-            completionHandler: { result in
+    func provideAssetsOptionsCollection(
+        for intent: ConfigurationIntent,
+        with completion: @escaping (INObjectCollection<AssetOption>?, Error?) -> ()
+    ) {
+        service.fetchAssets(
+            handler: { result in
                 switch result {
                 case let .success(assets):
                     completion(
@@ -40,6 +49,6 @@ extension IntentHandler: ConfigurationIntentHandling {
     }
 
     func defaultAssets(for intent: ConfigurationIntent) -> [AssetOption]? {
-        return nil
+        return service.defaultAssets().map { AssetOption(asset: $0) }
     }
 }
