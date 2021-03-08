@@ -58,7 +58,7 @@ extension DefaultAssetsPresenter: AssetsPresenter {
             pageLoadedHandler: { [weak self] assets in
                 DispatchQueue.main.async {
                     self?.updateCurrentAssets(assets)
-                    let viewModels = self?.makeAssetViewModels() ?? []
+                    let viewModels = self?.makeSectionViewModels() ?? []
                     self?.view?.update(with: .partialLoad(viewModels)
                     )
                 }
@@ -68,7 +68,7 @@ extension DefaultAssetsPresenter: AssetsPresenter {
                     switch result {
                     case let .success(assets):
                         self?.updateCurrentAssets(assets)
-                        let viewModels = self?.makeAssetViewModels() ?? []
+                        let viewModels = self?.makeSectionViewModels() ?? []
                         self?.view?.update(with: .loaded(viewModels))
                     case let .failure(error):
                         self?.view?.update(with: .failedToLoad(error))
@@ -90,7 +90,7 @@ extension DefaultAssetsPresenter: AssetsPresenter {
             startAppStateNotifications()
             startDataRefreshingIfNecessary()
             updateCurrentAssets(currentAssets)
-            view?.update(with: .loaded(makeAssetViewModels()))
+            view?.update(with: .loaded(makeSectionViewModels()))
         case .viewDidDisAppear:
             stopAppStateNotifications()
             stopDataRefreshing()
@@ -110,26 +110,26 @@ extension DefaultAssetsPresenter: AssetsPresenter {
 
 private extension DefaultAssetsPresenter {
 
-    func makeAssetViewModels() -> [AssetsViewModel.Section] {
+    func makeSectionViewModels() -> [AssetsViewModel.Section] {
         let isSearching = !(searchTerm?.isEmpty ?? true)
         let hasFavourite = !interactor.favoriteAssets().isEmpty
 
         var sections: [AssetsViewModel.Section] = [
             .init(
                 title: hasFavourite ? "USD quote | daily candles" : "",
-                assets: assetsViewModel(from: displayingAssets())
+                assets: assetViewModels(from: displayingAssets())
             )
         ]
 
         if !isSearching && hasFavourite {
-            let assets = assetsViewModel(from: currentFavouriteAssets)
+            let assets = assetViewModels(from: currentFavouriteAssets)
             sections = [.init(title: "Favourite", assets: assets)] + sections
         }
 
         return sections
     }
 
-    func assetsViewModel(from assets: [Asset]) -> [AssetsViewModel.Asset] {
+    func assetViewModels(from assets: [Asset]) -> [AssetsViewModel.Asset] {
         return assets.map {
             .init(
                 asset: $0,
@@ -165,7 +165,7 @@ private extension DefaultAssetsPresenter {
 
     func handleSearch(_ term: String?) {
         searchTerm = term
-        view?.update(with: .loaded(makeAssetViewModels()))
+        view?.update(with: .loaded(makeSectionViewModels()))
     }
 
     func displayingAssets() -> [Asset] {
@@ -217,7 +217,7 @@ private extension DefaultAssetsPresenter {
             }
             guard let _ = asset.changePercent24Hr else {
                 currentCandles[asset.id] = .unavailable
-                view?.update(with: .loaded(makeAssetViewModels()), at: idxPath)
+                view?.update(with: .loaded(makeSectionViewModels()), at: idxPath)
                 continue
             }
             candleProcessingAssets.append(asset)
@@ -250,12 +250,12 @@ private extension DefaultAssetsPresenter {
                 return
             }
 
-            view?.update(with: .loaded(makeAssetViewModels()), at: idxPath)
+            view?.update(with: .loaded(makeSectionViewModels()), at: idxPath)
             updateFavouriteCandlesIfNeeded(asset, idxPath: idxPath)
         case let .failure(err):
             if (err as? CandleCacheError) == CandleCacheError.unavailable {
                 currentCandles[asset.id] = .unavailable
-                view?.update(with: .loaded(makeAssetViewModels()), at: idxPath)
+                view?.update(with: .loaded(makeSectionViewModels()), at: idxPath)
             }
             print("\(type(of: self).self), \(type(of: err).self)", err)
         }
@@ -269,7 +269,7 @@ private extension DefaultAssetsPresenter {
             return
         }
         view?.update(
-            with: .loaded(makeAssetViewModels()),
+            with: .loaded(makeSectionViewModels()),
             at: IndexPath(item: idx, section: 1)
         )
     }
@@ -342,7 +342,7 @@ private extension DefaultAssetsPresenter {
                     switch result {
                     case let .success(assets):
                         self?.updateCurrentAssets(assets)
-                        let viewModels = self?.makeAssetViewModels() ?? []
+                        let viewModels = self?.makeSectionViewModels() ?? []
                         self?.view?.update(with: .loaded(viewModels))
                         self?.cancelCandleLoading()
                         self?.currentCandles = [:]
@@ -365,7 +365,7 @@ private extension DefaultAssetsPresenter {
         }
         interactor.toggleFavourite(asset)
         updateCurrentAssets(currentAssets) // to trigger favourites refresh
-        view?.update(with: .loaded(makeAssetViewModels()))
+        view?.update(with: .loaded(makeSectionViewModels()))
     }
 }
 
