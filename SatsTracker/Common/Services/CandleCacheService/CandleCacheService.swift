@@ -190,7 +190,7 @@ private final class CandlesDownloadOperation: AsyncOperation {
     private func candles(from markets: [Market], handler: @escaping CandlesHandler) {
         let usdMarkets = self.usdMarkets(from: markets)
         guard let market = usdMarkets.first ?? markets.first else {
-            handler(.failure(AssetsInteractorError.selectedQuoteMarketNotFound))
+            handler(.failure(CandleCacheError.selectedQuoteMarketNotFound))
             return
         }
 
@@ -278,4 +278,5 @@ enum CandleCacheError: Error {
     case failedToLoadData
     case unavailable
     case unknownOperationError
+    case selectedQuoteMarketNotFound
 }
