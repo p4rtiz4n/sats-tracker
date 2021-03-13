@@ -52,3 +52,22 @@ extension Asset: Decodable {
         vwap24Hr = try? (try? cont.decode(String.self, forKey: .vwap24Hr))?.double()
     }
 }
+
+// MARK: - Convenience initializer
+
+extension Asset {
+
+    init(id: String, rank: Int, symbol: String, name: String) {
+        self.id = id
+        self.rank = rank
+        self.symbol = symbol
+        self.name = name
+        supply = nil
+        maxSupply = nil
+        marketCapUsd = nil
+        volumeUsd24Hr = nil
+        priceUsd = nil
+        changePercent24Hr = nil
+        vwap24Hr = nil
+    }
+}
