@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 protocol AssetsView: class {
 
@@ -164,6 +165,8 @@ extension DefaultAssetsView: AssetsView {
     func update(with viewModel: AssetsViewModel) {
         self.viewModel = viewModel
         updateRefreshControl(viewModel)
+
+        WidgetCenter.shared.reloadAllTimelines()
 
         CATransaction.begin()
         CATransaction.setCompletionBlock { [weak self] in

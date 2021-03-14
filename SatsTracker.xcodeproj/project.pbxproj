@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F5C457D25A6497F002CDA9B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C457C25A6497F002CDA9B /* UIApplication.swift */; };
+		9F5DCF0225FEB6D80040F237 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DCF0125FEB6D80040F237 /* Array+Extension.swift */; };
+		9F6366C725FECAB20034F14C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24397444FA21F9F6B1F8C83 /* UIColor+Extension.swift */; };
+		9F6366CE25FECE000034F14C /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6366CD25FECE000034F14C /* Formatter+Extension.swift */; };
 		9F7716A92597404100A60FF1 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7716A82597404100A60FF1 /* AssetCell.swift */; };
 		9F8D5B0E25F65F07004B7FA2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8D5B0D25F65F07004B7FA2 /* WidgetKit.framework */; };
 		9F8D5B1025F65F07004B7FA2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8D5B0F25F65F07004B7FA2 /* SwiftUI.framework */; };
@@ -70,6 +73,12 @@
 		9FC9A346259733850047B26F /* UITestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A308259716220047B26F /* UITestAppDelegate.swift */; };
 		9FC9A34A259733880047B26F /* UITestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A30A259716220047B26F /* UITestConfiguration.swift */; };
 		9FC9A34E2597338C0047B26F /* SatsTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A30B259716220047B26F /* SatsTrackerUITests.swift */; };
+		9FE760D025FE1A1600B65525 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE760CF25FE1A1600B65525 /* Date+Extension.swift */; };
+		9FE760D725FE1C5B00B65525 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE760D625FE1C5B00B65525 /* WidgetViewModel.swift */; };
+		9FE760E325FE243D00B65525 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE760E225FE243D00B65525 /* WidgetView.swift */; };
+		9FE760FB25FE2E6600B65525 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE760FA25FE2E6600B65525 /* ChartViewModel.swift */; };
+		9FE7610725FE2E7700B65525 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7610625FE2E7700B65525 /* ChartView.swift */; };
+		9FE7610E25FE43DA00B65525 /* CG+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7610D25FE43DA00B65525 /* CG+Extension.swift */; };
 		A243900DAAB7A3DA372BA98E /* AssetDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24395074EBB48E917C5BB68 /* AssetDetailWireframe.swift */; };
 		A243906513FBC8FAF103C392 /* UIImgeView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24396134AFCEEFB780D424B /* UIImgeView+Cache.swift */; };
 		A243909DB7F824203D752B9C /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A243911EDCCBBEAEAA7183F5 /* UITableView+Extensions.swift */; };
@@ -147,6 +156,8 @@
 /* Begin PBXFileReference section */
 		9F0B8A4A25A273B900102531 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		9F5C457C25A6497F002CDA9B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		9F5DCF0125FEB6D80040F237 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		9F6366CD25FECE000034F14C /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 		9F7716A82597404100A60FF1 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
 		9F8D5B0B25F65F07004B7FA2 /* SatsTrackerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SatsTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8D5B0D25F65F07004B7FA2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -194,6 +205,12 @@
 		9FC9A30B259716220047B26F /* SatsTrackerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatsTrackerUITests.swift; sourceTree = "<group>"; };
 		9FC9A33B2597335E0047B26F /* SatsTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatsTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCD826E25A486F10060D2DD /* SatsTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SatsTracker.entitlements; sourceTree = "<group>"; };
+		9FE760CF25FE1A1600B65525 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		9FE760D625FE1C5B00B65525 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
+		9FE760E225FE243D00B65525 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		9FE760FA25FE2E6600B65525 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		9FE7610625FE2E7700B65525 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		9FE7610D25FE43DA00B65525 /* CG+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Extension.swift"; sourceTree = "<group>"; };
 		A243911EDCCBBEAEAA7183F5 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		A24391DD387EA30CA73C3DEF /* AssetDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewModel.swift; sourceTree = "<group>"; };
 		A24393490C1B5788EAEDECBC /* Candle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candle.swift; sourceTree = "<group>"; };
@@ -292,11 +309,12 @@
 		9F8D5B1125F65F07004B7FA2 /* SatsTrackerWidget */ = {
 			isa = PBXGroup;
 			children = (
+				9F94E58125F66E2300D73587 /* Services */,
+				9F94E58025F66E1A00D73587 /* Extensions */,
+				9FE760F925FE2E5400B65525 /* Views */,
 				9F8D5B1D25F65F09004B7FA2 /* SatsTrackerWidgetExtension.entitlements */,
 				9F8D5B1225F65F07004B7FA2 /* SatsTrackerWidget.swift */,
 				9F8D5B1425F65F07004B7FA2 /* SatsTrackerWidget.intentdefinition */,
-				9F94E58025F66E1A00D73587 /* Extensions */,
-				9F94E58125F66E2300D73587 /* Services */,
 				9F8D5B1525F65F08004B7FA2 /* Assets.xcassets */,
 				9F8D5B1725F65F08004B7FA2 /* Info.plist */,
 			);
@@ -317,6 +335,10 @@
 			isa = PBXGroup;
 			children = (
 				A2439E09CFC48D6909727A8A /* AssetOption+Extension.swift */,
+				9FE760CF25FE1A1600B65525 /* Date+Extension.swift */,
+				9F5DCF0125FEB6D80040F237 /* Array+Extension.swift */,
+				9FE7610D25FE43DA00B65525 /* CG+Extension.swift */,
+				9F6366CD25FECE000034F14C /* Formatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,6 +508,17 @@
 				9FC9A30A259716220047B26F /* UITestConfiguration.swift */,
 			);
 			path = Boostrap;
+			sourceTree = "<group>";
+		};
+		9FE760F925FE2E5400B65525 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9FE760D625FE1C5B00B65525 /* WidgetViewModel.swift */,
+				9FE760E225FE243D00B65525 /* WidgetView.swift */,
+				9FE760FA25FE2E6600B65525 /* ChartViewModel.swift */,
+				9FE7610625FE2E7700B65525 /* ChartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A2439111FF7733F25DCEF0FA /* AssetDetail */ = {
@@ -732,17 +765,26 @@
 				9F94E55F25F664AF00D73587 /* String+Extension.swift in Sources */,
 				9F8D5B7225F66146004B7FA2 /* Asset.swift in Sources */,
 				9F8D5B1825F65F08004B7FA2 /* SatsTrackerWidget.intentdefinition in Sources */,
+				9FE760FB25FE2E6600B65525 /* ChartViewModel.swift in Sources */,
+				9F5DCF0225FEB6D80040F237 /* Array+Extension.swift in Sources */,
 				9F8D5B5325F6613F004B7FA2 /* Interval.swift in Sources */,
+				9FE7610E25FE43DA00B65525 /* CG+Extension.swift in Sources */,
 				9F8D5B1325F65F07004B7FA2 /* SatsTrackerWidget.swift in Sources */,
 				9F94E58725F66E6A00D73587 /* CandleCacheService.swift in Sources */,
 				9F94E54125F6646400D73587 /* Network.swift in Sources */,
+				9FE760D025FE1A1600B65525 /* Date+Extension.swift in Sources */,
 				9F8D5B5F25F66141004B7FA2 /* Candle.swift in Sources */,
 				9F8D5B6B25F66144004B7FA2 /* Market.swift in Sources */,
+				9F6366CE25FECE000034F14C /* Formatter+Extension.swift in Sources */,
+				9F6366C725FECAB20034F14C /* UIColor+Extension.swift in Sources */,
+				9FE760D725FE1C5B00B65525 /* WidgetViewModel.swift in Sources */,
 				9F94E55325F6648F00D73587 /* DataResponse.swift in Sources */,
 				A24395B5F4D7DD96BA3367A7 /* AssetOption+Extension.swift in Sources */,
 				A2439599234632CF2A332C71 /* WidgetService.swift in Sources */,
+				9FE7610725FE2E7700B65525 /* ChartView.swift in Sources */,
 				9F94E59F25F66F5900D73587 /* AsyncOperation.swift in Sources */,
 				9F94E59325F66E7100D73587 /* ImageCacheService.swift in Sources */,
+				9FE760E325FE243D00B65525 /* WidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +940,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker.SatsTrackerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -922,6 +965,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker.SatsTrackerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -944,6 +988,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker.SatsTrackerWidgetIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -966,6 +1011,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p4rtiz4n.SatsTracker.SatsTrackerWidgetIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

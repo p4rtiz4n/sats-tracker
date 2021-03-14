@@ -75,8 +75,9 @@ extension DefaultWidgetsService: WidgetsService {
                 }
             )
         }
-        group.wait()
-        handler(.success((assets, info)))
+        group.notify(queue: DispatchQueue.global()) {
+            handler(.success((assets, info)))
+        }
     }
 
     func fetchAssets(handler: @escaping AssetHandler) {
@@ -112,54 +113,6 @@ extension DefaultWidgetsService: WidgetsService {
                 symbol: "UNI",
                 name: "Uniswap"
             ),
-            .init(
-                id: "binance-coin",
-                rank: 3,
-                symbol: "BNB",
-                name: "Binance Coin"
-            ),
-            .init(
-                id: "litecoin",
-                rank: 9,
-                symbol: "LTC",
-                name: "Litecoin"
-            ),
-            .init(
-                id: "tether",
-                rank: 5,
-                symbol: "USDT",
-                name: "Tether"
-            ),
-            .init(
-                id: "cardano",
-                rank: 6,
-                symbol: "ADA",
-                name: "Cardano"
-            ),
-            .init(
-                id: "xrp",
-                rank: 7,
-                symbol: "XRP",
-                name: "XRP"
-            ),
-            .init(
-                id: "chainlink",
-                rank: 10,
-                symbol: "LINK",
-                name: "Chainlink"
-            ),
-            .init(
-                id: "bitcoin-cash",
-                rank: 11,
-                symbol: "BCH",
-                name: "Bitcoin Cash"
-            ),
-            .init(
-                id: "stellar",
-                rank: 12,
-                symbol: "XLM",
-                name: "Stellar"
-            )
         ]
     }
 }

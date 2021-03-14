@@ -1,8 +1,5 @@
 //
-//  SatsTrackerWidget.swift
-//  SatsTrackerWidget
-//
-//  Created by stringcode on 08/03/2021.
+// Created by p4rtiz4n on 14/03/2021.
 //
 
 import WidgetKit
@@ -10,41 +7,93 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+
+    let service: WidgetsService = {
+        let assetsService = DefaultAssetsService(network: DefaultNetwork())
+        return DefaultWidgetsService(
+            assetsService: assetsService,
+            candleCacheService: DefaultCandlesCacheService(
+                assetsService: assetsService
+            )
+        )
+    }()
+
+    func placeholder(in context: Context) -> WidgetEntry {
+        return WidgetEntry(assets: [], info: [:])
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (WidgetEntry) -> ()) {
+        service.fetchAssetsAndCandles(
+            for: configuration.assets ?? [],
+            handler: { result in
+                let entry: WidgetEntry
+                switch result {
+                case let .success((asset, info)):
+                    entry = WidgetEntry(
+                        assets: asset,
+                        info: info,
+                        config: configuration
+                    )
+                case let .failure(error):
+                    print(error)
+                    entry = placeholder(in: context)
+                }
+                DispatchQueue.main.async {
+                    completion(entry)
+                }
+            }
+        )
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        getSnapshot(
+            for: configuration,
+            in: context,
+            completion: { entry in
+                let timeline = Timeline(
+                    entries: [entry],
+                    policy: .after(Date().adding(minutes: Constant.interval))
+                )
+                completion(timeline)
+            }
+        )
+    }
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+    private enum Constant {
+        static let interval: Double = 30
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct WidgetEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    let viewModel: WidgetViewModel
+    
+    init(
+        assets: [Asset],
+        info: [String: [Candle]],
+        config: ConfigurationIntent? = nil
+    ) {
+        guard assets.count > 0 else {
+            date = Date()
+            viewModel = .mock()
+            return
+        }
+
+        date = Date()
+        viewModel = WidgetViewModel(assets: assets, info: info, config: config)
+    }
 }
 
 struct SatsTrackerWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        if entry.viewModel.isMock {
+            WidgetView(viewModel: entry.viewModel)
+                .redacted(reason: .placeholder)
+        } else {
+            WidgetView(viewModel: entry.viewModel)
+        }
     }
 }
 
@@ -56,14 +105,15 @@ struct SatsTrackerWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             SatsTrackerWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("SatsTracker")
+        .description("List of crypto currencies")
+        .supportedFamilies([.systemSmall])
     }
 }
 
 struct SatsTrackerWidget_Previews: PreviewProvider {
     static var previews: some View {
-        SatsTrackerWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        SatsTrackerWidgetEntryView(entry: WidgetEntry(assets: [], info: [:]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

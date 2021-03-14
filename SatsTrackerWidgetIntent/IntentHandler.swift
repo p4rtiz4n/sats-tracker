@@ -1,8 +1,5 @@
 //
-//  IntentHandler.swift
-//  SatsTrackerWidgetIntent
-//
-//  Created by stringcode on 08/03/2021.
+// Created by p4rtiz4n on 14/03/2021.
 //
 
 import Intents
